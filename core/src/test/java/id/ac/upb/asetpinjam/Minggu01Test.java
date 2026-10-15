@@ -1,13 +1,13 @@
 package id.ac.upb.asetpinjam;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 import id.ac.upb.asetpinjam.config.Varian;
 import id.ac.upb.asetpinjam.minggu01.HelloFungsional;
 import id.ac.upb.asetpinjam.minggu01.HelloOOP;
 import id.ac.upb.asetpinjam.minggu01.HelloProsedural;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 
 @Tag("week1")
 class Minggu01Test {
