@@ -1,9 +1,10 @@
 package id.ac.upb.asetpinjam.katalog;
 
-import id.ac.upb.asetpinjam.model.Aset;
-import id.ac.upb.asetpinjam.model.JenisAset;
 import java.util.ArrayList;
 import java.util.List;
+
+import id.ac.upb.asetpinjam.model.Aset;
+import id.ac.upb.asetpinjam.model.JenisAset;
 
 /** Katalog aset di memori. tambah() dan semua() DISEDIAKAN; Anda mengerjakan dua overload cari() (minggu 4). */
 public class KatalogAset {
@@ -20,11 +21,35 @@ public class KatalogAset {
 
     /** TODO minggu 4: aset yang namanya memuat kata (tanpa membedakan huruf besar/kecil). */
     public List<Aset> cari(String kata) {
-        throw new UnsupportedOperationException("TODO minggu 4: cari(String)");
+        List<Aset> hasil = new ArrayList<>();
+
+        if (kata == null || kata.trim().isEmpty()) {
+            throw new IllegalArgumentException("Kata pencarian tidak boleh null atau kosong");
+        }
+        for (Aset aset : daftar) {
+            if (aset.getNama().toLowerCase().contains(kata.toLowerCase())) {
+                hasil.add(aset);
+            }
+        }
+        return hasil;
     }
 
     /** TODO minggu 4: seperti cari(kata) tetapi hanya untuk jenis yang diminta (overloading). */
     public List<Aset> cari(String kata, JenisAset jenis) {
-        throw new UnsupportedOperationException("TODO minggu 4: cari(String, JenisAset)");
+        List<Aset> hasil = new ArrayList<>();
+
+        if (kata == null || kata.trim().isEmpty()) {
+            return hasil; 
+        }
+        String kataLower = kata.toLowerCase();
+        for (Aset aset : daftar) {
+            boolean cocokNama = aset.getNama().toLowerCase().contains(kataLower);
+            boolean cocokJenis = aset.getJenis() == jenis;
+
+            if (cocokNama && cocokJenis) {
+                hasil.add(aset);
+            }
+        }
+        return hasil;
     }
 }
