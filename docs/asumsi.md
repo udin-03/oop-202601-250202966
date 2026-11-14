@@ -27,4 +27,11 @@ Salin setiap pertanyaan ambigu (nomor 1 sampai 7) ke sini dan jawab. Contoh:
 
 ## Asumsi lain
 
+## A-02: Rumus Denda Progresif Minggu-05
+- Pertanyaan: Rumus matematika seperti apa yang dipakai di `DendaProgresif` supaya dendanya tidak lebih murah dari denda biasa (*flat*), terus naik setiap hari, dan pas hari ke-30 jauh lebih mahal?
+- Keputusan: Mengambil hasil denda dasar (`dendaFlat`), lalu ditambah dengan komponen ekstra kelipatan hari (`dendaFlat * hariTerlambat * 0.5`), dan dilindungi menggunakan perintah `Math.max()` supaya hasilnya tidak pernah di bawah denda flat.
+- Alasan: Cara ini sangat ampuh bikin denda makin membengkak seiring lamanya keterlambatan (terutama pas hari ke-30 yang naiknya drastis), tapi tetap aman dan tidak melanggar aturan batas minimal tes.
+- Dampak ke kode: Kelas `id.ac.upb.asetpinjam.denda.DendaProgresif` di bagian method `hitung()`.
+- Tes yang membuktikan: `Minggu05AbstraksiTest`
+
 Tambahkan di sini keputusan lain yang Anda ambil: rumus denda progresif, perubahan skema database, format error API, dan seterusnya.
