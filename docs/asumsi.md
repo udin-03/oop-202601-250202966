@@ -34,4 +34,11 @@ Salin setiap pertanyaan ambigu (nomor 1 sampai 7) ke sini dan jawab. Contoh:
 - Dampak ke kode: Kelas `id.ac.upb.asetpinjam.denda.DendaProgresif` di bagian method `hitung()`.
 - Tes yang membuktikan: `Minggu05AbstraksiTest`
 
+## A-03: Batas Waktu Bentrok
+- Pertanyaan: 09:00-11:00 dan 11:00-13:00 pada aset yang sama bentrok atau tidak?
+- Keputusan: Tidak bentrok (mengembalikan nilai `false`).
+- Alasan: Karena pada jam 11:00, barangnya sudah selesai dipakai sama peminjam pertama, jadi bisa langsung dipakai sama peminjam berikutnya tanpa tabrakan waktu.
+- Dampak ke kode: Di dalam fungsi `bentrok()`, perbandingan waktunya pakai tanda lebih kecil dari (`<`), jadi ketika (11:00 ketemu 11:00) tidak dianggap bentrok.
+- Tes yang membuktikan: Tes `BatasBentrokTest.selesaiSamaDenganMulai()` yang ada di folder mahasiswa, di mana kodenya memastikan hasilnya `isFalse()`.
+
 Tambahkan di sini keputusan lain yang Anda ambil: rumus denda progresif, perubahan skema database, format error API, dan seterusnya.
